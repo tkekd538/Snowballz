@@ -1,0 +1,7 @@
+name: Snowballz
+main: com.nohupgaming.minecraft.Snowballz
+version: 1.0
+description: Snowballs that hit blocks now have an affect
+author: Nohup
+changelog:
+  - v1.0  Initial release
