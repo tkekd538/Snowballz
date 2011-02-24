@@ -22,16 +22,9 @@ public class SnowballzBlockListener extends BlockListener
         if (event.getBlock().getType().equals(Material.SNOW) &&
             event.getPlayer().getItemInHand().getType().equals(Material.AIR))
         {
-            try
-            {
-                event.getPlayer().getWorld().dropItem(
-                    event.getBlock().getLocation(), 
-                    new ItemStack(Material.SNOW_BALL, 1));
-            }
-            catch (Exception e)
-            {
-                // no op
-            }
+            event.getPlayer().getWorld().dropItem(
+                event.getBlock().getLocation(), 
+                new ItemStack(Material.SNOW_BALL, 1));
         }
     }
     
