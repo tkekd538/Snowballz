@@ -25,7 +25,8 @@ public class SnowballzPlayerListener extends PlayerListener
         
         if (event.getItem().getType() == Material.SNOW_BALL)
         {
-            Block clicked = event.getPlayer().getTargetBlock(null, 10);
+            Block clicked = event.getPlayer().getTargetBlock(null, 
+                _plugin.getConfiguration().getInt(Snowballz.SNOW_RANGE, 10));
             if (clicked != null && clicked.getType() != null)
             {
                 applyConversion(clicked);                
@@ -95,7 +96,8 @@ public class SnowballzPlayerListener extends PlayerListener
                 }
                 b.getFace(BlockFace.UP).setType(Material.SNOW);
             }
-            else if (convertTo.equals(Material.ICE))
+            else if (convertTo.equals(Material.ICE) && _plugin
+                .getConfiguration().getBoolean(Snowballz.SNOW_ICE, true))
             {
                 if (b.getData() == 0x0)
                 {

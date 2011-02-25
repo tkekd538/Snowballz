@@ -31,9 +31,12 @@ public class SnowballzEntityListener extends EntityListener
                 Entity tgt = event.getEntity();
                 if (tgt instanceof LivingEntity)
                 {
-                    event.setDamage(1);
+                    event.setDamage(_plugin.getConfiguration().getInt(
+                        Snowballz.SNOW_DAMAGE, 1));
 
-                    if (tgt.getFireTicks() > 0)
+                    if (tgt.getFireTicks() > 0 &&
+                        _plugin.getConfiguration().getBoolean(
+                            Snowballz.SNOW_FIRE, true))
                     {
                         tgt.setFireTicks(0);
                     }
