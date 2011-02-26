@@ -16,10 +16,10 @@ public class Snowballz extends JavaPlugin
     SnowballzEntityListener _el;
     SnowballzBlockListener  _bl;
     
-    public static String SNOW_DAMAGE = "snowball.damage";
-    public static String SNOW_RANGE = "snowball.range";
-    public static String SNOW_FIRE = "snowball.ability.dousefire";
-    public static String SNOW_ICE = "snowball.ability.freezewater";
+    public static final String SNOW_DAMAGE = "snowball.damage";
+    public static final String SNOW_RANGE = "snowball.range";
+    public static final String SNOW_FIRE = "snowball.ability.dousefire";
+    public static final String SNOW_ICE = "snowball.ability.freezewater";
     
     public Snowballz()
     {
