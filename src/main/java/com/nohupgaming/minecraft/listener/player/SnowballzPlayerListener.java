@@ -10,7 +10,6 @@ import com.nohupgaming.minecraft.Snowballz;
 
 public class SnowballzPlayerListener extends PlayerListener 
 {
-    @SuppressWarnings("unused")
     private final Snowballz _plugin;
     
     public SnowballzPlayerListener(final Snowballz plugin)
@@ -29,7 +28,11 @@ public class SnowballzPlayerListener extends PlayerListener
                 _plugin.getConfiguration().getInt(Snowballz.SNOW_RANGE, 10));
             if (clicked != null && clicked.getType() != null)
             {
-                applyConversion(clicked);                
+                Block above = clicked.getRelative(BlockFace.UP);
+                if (above.getType().equals(Material.AIR))
+                {
+                    applyConversion(clicked);
+                }
             }
         }
     }
