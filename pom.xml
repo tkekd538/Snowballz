@@ -5,7 +5,7 @@
   <name>Minecraft - SnowBallz</name>
   <groupId>com.nohupgaming.minecraft</groupId>
   <artifactId>Snowballz</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <packaging>jar</packaging>  
 
   <dependencies>

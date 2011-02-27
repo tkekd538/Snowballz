@@ -4,4 +4,6 @@ version: 1.0
 description: Snowballs that hit blocks now have an affect
 author: Nohup
 changelog:
+  - v1.2  Bug-fix for block above
+  - v1.1  Added properties support
   - v1.0  Initial release
