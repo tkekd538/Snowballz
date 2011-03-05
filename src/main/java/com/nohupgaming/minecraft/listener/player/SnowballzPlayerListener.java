@@ -25,7 +25,7 @@ public class SnowballzPlayerListener extends PlayerListener
         super.onPlayerItem(event);
         
         if (event.getItem().getType() == Material.SNOW_BALL &&
-            SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_COVERBLOCK))
+            SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_CHANGEBLOCK))
         {
             Block clicked = event.getPlayer().getTargetBlock(null, 
                 _plugin.getConfiguration().getInt(Snowballz.SNOW_RANGE, 10));
