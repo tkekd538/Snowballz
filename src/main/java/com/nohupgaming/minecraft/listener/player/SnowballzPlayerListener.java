@@ -7,6 +7,8 @@ import org.bukkit.event.player.PlayerItemEvent;
 import org.bukkit.event.player.PlayerListener;
 
 import com.nohupgaming.minecraft.Snowballz;
+import com.nohupgaming.minecraft.util.SnowballzConstants;
+import com.nohupgaming.minecraft.util.SnowballzUtil;
 
 public class SnowballzPlayerListener extends PlayerListener 
 {
@@ -22,7 +24,8 @@ public class SnowballzPlayerListener extends PlayerListener
     {
         super.onPlayerItem(event);
         
-        if (event.getItem().getType() == Material.SNOW_BALL)
+        if (event.getItem().getType() == Material.SNOW_BALL &&
+            SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_COVERBLOCK))
         {
             Block clicked = event.getPlayer().getTargetBlock(null, 
                 _plugin.getConfiguration().getInt(Snowballz.SNOW_RANGE, 10));

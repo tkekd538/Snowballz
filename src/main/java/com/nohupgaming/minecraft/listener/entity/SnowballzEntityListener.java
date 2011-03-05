@@ -2,16 +2,18 @@ package com.nohupgaming.minecraft.listener.entity;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.event.entity.EntityDamageByProjectileEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityListener;
 
 import com.nohupgaming.minecraft.Snowballz;
+import com.nohupgaming.minecraft.util.SnowballzConstants;
+import com.nohupgaming.minecraft.util.SnowballzUtil;
 
 public class SnowballzEntityListener extends EntityListener 
 {
-    @SuppressWarnings("unused")
     private final Snowballz _plugin;
     
     public SnowballzEntityListener(final Snowballz plugin)
@@ -31,12 +33,17 @@ public class SnowballzEntityListener extends EntityListener
                 Entity tgt = event.getEntity();
                 if (tgt instanceof LivingEntity)
                 {
-                    event.setDamage(_plugin.getConfiguration().getInt(
-                        Snowballz.SNOW_DAMAGE, 1));
+                    Player pl = edpe.getDamager() instanceof Player ? (Player) edpe.getDamager() : null;
+                    if (SnowballzUtil.hasPermission(_plugin, pl, SnowballzConstants.PERMISSION_SNOWDAMAGE))
+                    {
+                        event.setDamage(_plugin.getConfiguration().getInt(
+                            Snowballz.SNOW_DAMAGE, 1));
+                    }
 
                     if (tgt.getFireTicks() > 0 &&
                         _plugin.getConfiguration().getBoolean(
-                            Snowballz.SNOW_FIRE, true))
+                            Snowballz.SNOW_FIRE, true) &&
+                        SnowballzUtil.hasPermission(_plugin, pl, SnowballzConstants.PERMISSION_PUTOUTFIRE))
                     {
                         tgt.setFireTicks(0);
                     }

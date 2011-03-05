@@ -6,10 +6,11 @@ import org.bukkit.event.block.BlockListener;
 import org.bukkit.inventory.ItemStack;
 
 import com.nohupgaming.minecraft.Snowballz;
+import com.nohupgaming.minecraft.util.SnowballzConstants;
+import com.nohupgaming.minecraft.util.SnowballzUtil;
 
 public class SnowballzBlockListener extends BlockListener 
 {
-    @SuppressWarnings("unused")
     private final Snowballz _plugin;
     
     public SnowballzBlockListener(Snowballz plugin)
@@ -20,7 +21,8 @@ public class SnowballzBlockListener extends BlockListener
     @Override
     public void onBlockBreak(BlockBreakEvent event) {
         if (event.getBlock().getType().equals(Material.SNOW) &&
-            event.getPlayer().getItemInHand().getType().equals(Material.AIR))
+            event.getPlayer().getItemInHand().getType().equals(Material.AIR) &&
+            SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_MAKESNOWBALL))
         {
             event.getPlayer().getWorld().dropItem(
                 event.getBlock().getLocation(), 

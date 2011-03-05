@@ -6,15 +6,20 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.config.Configuration;
 
+import com.nijiko.permissions.PermissionHandler;
+import com.nijikokun.bukkit.Permissions.Permissions;
 import com.nohupgaming.minecraft.listener.block.SnowballzBlockListener;
 import com.nohupgaming.minecraft.listener.entity.SnowballzEntityListener;
 import com.nohupgaming.minecraft.listener.player.SnowballzPlayerListener;
+import com.nohupgaming.minecraft.util.SnowballzConstants;
 
 public class Snowballz extends JavaPlugin 
 {
     SnowballzPlayerListener _pl;
     SnowballzEntityListener _el;
     SnowballzBlockListener  _bl;
+
+    private PermissionHandler _permissions;
     
     public static final String SNOW_DAMAGE = "snowball.damage";
     public static final String SNOW_RANGE = "snowball.range";
@@ -47,6 +52,12 @@ public class Snowballz extends JavaPlugin
         pm.registerEvent(Type.ENTITY_DAMAGED, _el, Priority.Normal, this);
         pm.registerEvent(Type.BLOCK_BREAK, _bl, Priority.Normal, this);
         System.out.println("Snowballz has been enabled with the following options:");
+
+        if (pm.getPlugin(SnowballzConstants.PERMISSIONS) != null)
+        {
+            Permissions perm = (Permissions) pm.getPlugin(Permissions.name);
+            _permissions = perm.getHandler(); 
+        }
         
         Configuration c = getConfiguration();
         System.out.println("    Snow damage: " + Integer.toString(c.getInt(SNOW_DAMAGE, -1)));
@@ -72,5 +83,9 @@ public class Snowballz extends JavaPlugin
         }
     }
 
+    public PermissionHandler getPermissionHandler()
+    {
+        return _permissions;
+    }
 
 }
