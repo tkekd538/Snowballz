@@ -20,7 +20,8 @@ public class SnowballzBlockListener extends BlockListener
     
     @Override
     public void onBlockBreak(BlockBreakEvent event) {
-        if (event.getBlock().getType().equals(Material.SNOW) &&
+        if (!event.isCancelled() &&
+            event.getBlock().getType().equals(Material.SNOW) &&
             event.getPlayer().getItemInHand().getType().equals(Material.AIR) &&
             SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_MAKESNOWBALL))
         {

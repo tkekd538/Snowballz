@@ -22,9 +22,8 @@ public class SnowballzPlayerListener extends PlayerListener
     @Override
     public void onPlayerItem(PlayerItemEvent event) 
     {
-        super.onPlayerItem(event);
-        
-        if (event.getItem().getType() == Material.SNOW_BALL &&
+        if (!event.isCancelled() &&
+            event.getItem().getType() == Material.SNOW_BALL &&
             SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_CHANGEBLOCK))
         {
             Block clicked = event.getPlayer().getTargetBlock(null, 
