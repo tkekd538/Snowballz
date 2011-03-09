@@ -51,7 +51,6 @@ public class Snowballz extends JavaPlugin
         pm.registerEvent(Type.PLAYER_ITEM, _pl, Priority.Monitor, this);
         pm.registerEvent(Type.ENTITY_DAMAGED, _el, Priority.Normal, this);
         pm.registerEvent(Type.BLOCK_BREAK, _bl, Priority.Monitor, this);
-        System.out.println("Snowballz has been enabled with the following options:");
 
         if (pm.getPlugin(SnowballzConstants.PERMISSIONS) != null)
         {
@@ -60,6 +59,8 @@ public class Snowballz extends JavaPlugin
         }
         
         Configuration c = getConfiguration();
+        System.out.println("Snowballz " + SnowballzConstants.SNOWBALLZ_VERSION + 
+            " has been enabled with the following options:");
         System.out.println("    Snow damage: " + Integer.toString(c.getInt(SNOW_DAMAGE, -1)));
         System.out.println("    Snow range: " + Integer.toString(c.getInt(SNOW_RANGE, -1)));
         System.out.println("    Snow douses fire: " + Boolean.toString(c.getBoolean(SNOW_FIRE, true)));
