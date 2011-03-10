@@ -49,7 +49,7 @@ public class Snowballz extends JavaPlugin
 
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Type.PLAYER_ITEM, _pl, Priority.Monitor, this);
-        pm.registerEvent(Type.ENTITY_DAMAGED, _el, Priority.Normal, this);
+        pm.registerEvent(Type.ENTITY_DAMAGED, _el, Priority.Monitor, this);
         pm.registerEvent(Type.BLOCK_BREAK, _bl, Priority.Monitor, this);
 
         if (pm.getPlugin(SnowballzConstants.PERMISSIONS) != null)

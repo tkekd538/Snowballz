@@ -2,7 +2,7 @@ package com.nohupgaming.minecraft.util;
 
 public class SnowballzConstants 
 {
-    public static String SNOWBALLZ_VERSION = "v1.4";
+    public static String SNOWBALLZ_VERSION = "v1.5";
     
     public static String PERMISSIONS = "Permissions";
     

@@ -23,8 +23,8 @@ public class SnowballzEntityListener extends EntityListener
     
     @Override
     public void onEntityDamage(EntityDamageEvent event) 
-    {
-        if (event instanceof EntityDamageByProjectileEvent)
+    {        
+        if (!event.isCancelled() && event instanceof EntityDamageByProjectileEvent)
         {
             EntityDamageByProjectileEvent edpe = (EntityDamageByProjectileEvent) event;
 
