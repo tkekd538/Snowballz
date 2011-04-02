@@ -5,14 +5,21 @@
   <name>Minecraft - SnowBallz</name>
   <groupId>com.nohupgaming.minecraft</groupId>
   <artifactId>Snowballz</artifactId>
-  <version>1.5</version>
+  <version>1.6</version>
   <packaging>jar</packaging>  
+
+  <repositories>
+    <repository>
+      <id>nohups</id>
+      <url>http://nohupgaming.com/m2repo</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
-      <version>0.0.1-432</version>
+      <version>0.0.1-495</version>
       <scope>compile</scope>      
     </dependency>
     <dependency>

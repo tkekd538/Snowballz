@@ -3,7 +3,7 @@ package com.nohupgaming.minecraft.listener.player;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.event.player.PlayerItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerListener;
 
 import com.nohupgaming.minecraft.Snowballz;
@@ -20,10 +20,11 @@ public class SnowballzPlayerListener extends PlayerListener
     }
     
     @Override
-    public void onPlayerItem(PlayerItemEvent event) 
+    public void onPlayerInteract(PlayerInteractEvent event) 
     {
-        if (!event.isCancelled() &&
-            event.getItem().getType() == Material.SNOW_BALL &&
+        if (event != null &&
+            !event.isCancelled() &&
+            event.getItem() != null && event.getItem().getType() == Material.SNOW_BALL &&
             SnowballzUtil.hasPermission(_plugin, event.getPlayer(), SnowballzConstants.PERMISSION_CHANGEBLOCK))
         {
             Block clicked = event.getPlayer().getTargetBlock(null, 

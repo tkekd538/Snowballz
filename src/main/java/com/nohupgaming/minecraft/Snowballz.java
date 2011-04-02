@@ -33,13 +33,11 @@ public class Snowballz extends JavaPlugin
         _bl = new SnowballzBlockListener(this);
     }
     
-    @Override
     public void onDisable() 
     {
         System.out.println("Snowballz has been disabled.");
     }
 
-    @Override
     public void onEnable() 
     {
         if (!getDataFolder().exists()) 
@@ -48,8 +46,8 @@ public class Snowballz extends JavaPlugin
         }
 
         PluginManager pm = getServer().getPluginManager();
-        pm.registerEvent(Type.PLAYER_ITEM, _pl, Priority.Monitor, this);
-        pm.registerEvent(Type.ENTITY_DAMAGED, _el, Priority.Monitor, this);
+        pm.registerEvent(Type.PLAYER_INTERACT, _pl, Priority.Monitor, this);
+        pm.registerEvent(Type.ENTITY_DAMAGE, _el, Priority.Monitor, this);
         pm.registerEvent(Type.BLOCK_BREAK, _bl, Priority.Monitor, this);
 
         if (pm.getPlugin(SnowballzConstants.PERMISSIONS) != null)
